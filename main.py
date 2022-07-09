@@ -33,7 +33,8 @@ def search():
                 return jsonify(results=([res]))
         except:
             # return error
-            jsonify({"sorry": "Sorry, no results! Please try again."}), 500
+            # jsonify({"sorry": "Sorry, no results! Please try again."}), 500
+            return 500
 
 if __name__ == '__main__':
     app.run()
