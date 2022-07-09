@@ -1,0 +1,67 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-md-7">
+    <h2>Select an Image</h2>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <p><img src="../static/499.png" style="height: 250px;" class="img"></p>
+        <p><img src="../static/500.png" style="height: 250px;" class="img"></p>
+        <p><img src="../static/501.png" style="height: 250px;" class="img"></p>
+        <p><img src="../static/502.png" style="height: 250px;" class="img"></p>
+      </div>
+      <!--<div class="col-md-6">
+        <p><img src="../static/77.png" style="height: 250px;" class="img"></p>
+        <p><img src="../static/491.png" style="height: 250px;" class="img"></p>
+      </div>-->
+    </div>
+  </div>
+
+  <div class="col-md-3 col-md-offset-1">
+    <h2>Results</h2>
+    <br>
+    <p id="searching"></p>
+
+    <table class="table1" id="results-table1">
+      <thead>
+        <tr>
+          <th>Semantic Segmentation</th>
+
+        </tr>
+      </thead>
+      <tbody id="results1">
+      </tbody>
+    </table>
+    <table class="table2" id="results-table2">
+    <thead>
+    <tr>
+      <th>Instance Segmentation</th>
+
+    </tr>
+    </thead>
+    <tbody id="results2">
+    </tbody>
+    </table>
+  </div>
+
+</div>
+<br>
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+
+{% endblock %}
