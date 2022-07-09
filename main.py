@@ -32,11 +32,11 @@ def search():
                 res = {"image":"../static/{}".format("res_"+name), "semantic":"../static/{}".format("sem_"+name)}
                 return jsonify(results=([res]))
             else:
-                return None
+                return 'no result'
         except:
             # return error
             # jsonify({"sorry": "Sorry, no results! Please try again."}), 500
-            return None
+            return 'error'
 
 if __name__ == '__main__':
     app.run()
