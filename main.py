@@ -21,9 +21,9 @@ def search():
 
         try:
             RES = []
-            RESULTS_ARRAY = glob.glob(".\\static\\res_*.png")
+            RESULTS_ARRAY = glob.glob("./static/res_*.png")
             for temp in RESULTS_ARRAY:
-                RES.append(temp.split("\\")[-1])
+                RES.append(temp.split("/")[-1])
             # get url
             image_url = request.form.get('img')
             name = image_url.split("/")[-1]
