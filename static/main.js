@@ -20,7 +20,8 @@ $(function() {
   $(".img").click(function() {
 
     // empty/hide results
-    $("#results").empty();
+    $("#results1").empty();
+    $("#results2").empty();
     $("#results-table1").hide();
     $("#results-table2").hide();
     $("#error").hide();
