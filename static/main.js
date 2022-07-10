@@ -20,8 +20,7 @@ $(function() {
   $(".img").click(function() {
 
     // empty/hide results
-    $("#results1").empty();
-    $("#results2").empty();
+
     $("#results-table1").hide();
     $("#results-table2").hide();
     $("#error").hide();
@@ -47,6 +46,8 @@ $(function() {
       // handle success
       success: function(result) {
         console.log(result.results);
+        $("#results1").empty();
+        $("#results2").empty();
         var data = result.results
         // show table
         $("#results-table1").show();
