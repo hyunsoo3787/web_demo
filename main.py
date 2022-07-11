@@ -2,6 +2,7 @@ import logging
 import os
 from flask import Flask, render_template, request, jsonify
 import glob
+import time
 
 # create flask instance
 app = Flask(__name__)
@@ -21,7 +22,7 @@ def search():
 
         try:
             RES = []
-            RESULTS_ARRAY = glob.glob("./static/res_*.png")
+            RESULTS_ARRAY = glob.glob(os.path.join("static", "res_*.png"))
             for temp in RESULTS_ARRAY:
                 RES.append(temp.split("/")[-1])
             # get url
@@ -30,6 +31,7 @@ def search():
             temp = "res_" + image_url.split("/")[-1]
             if temp in RES:
                 res = {"image":"./static/{}".format("res_"+name), "semantic":"./static/{}".format("sem_"+name)}
+                time.sleep(2)
                 return jsonify(results=([res]))
             else:
                 return 'no result'
