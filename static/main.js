@@ -23,6 +23,7 @@ $(function() {
 
     $("#results-table1").hide();
     $("#results-table2").hide();
+    $("#loading-prograss").hide();
     $("#error").hide();
     $("#results-btn").hide();
     // remove active class
@@ -37,17 +38,25 @@ $(function() {
 
     // show searching text
     $("#searching").show();
+    $(document).ajaxStart(function() {
+			$('#loading-prograss').show();
+    });
 
+    $(document).ajaxStop(function() {
+        $('#loading-prograss').hide();
+    });
     // ajax request
     $.ajax({
       type: "POST",
       url: "/search",
       data : { img : image },
+
       // handle success
       success: function(result) {
         console.log(result.results);
         $("#results1").empty();
         $("#results2").empty();
+
         var data = result.results
         // show table
         $("#results-table1").show();

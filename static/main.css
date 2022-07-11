@@ -16,6 +16,10 @@
 .result-img1 {
   max-height: 250px;
 }
+.loading-img{
+  max-height: 250px;
+  margin: auto;
+}
 /* Style the Image Used to Trigger the Modal */
 #myImg {
   border-radius: 5px;
