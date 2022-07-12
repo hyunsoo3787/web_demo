@@ -4,6 +4,7 @@
 $("#searching").hide();
 $("#results-table1").hide();
 $("#results-table2").hide();
+$("#results-table3").hide();
 $("#error").hide();
 $("#results-btn").hide();
 // global
@@ -23,6 +24,7 @@ $(function() {
 
     $("#results-table1").hide();
     $("#results-table2").hide();
+    $("#results-table3").hide();
     $("#loading-prograss").hide();
     $("#error").hide();
     $("#results-btn").hide();
@@ -56,6 +58,7 @@ $(function() {
         console.log(result.results);
         $("#results1").empty();
         $("#results2").empty();
+        $("#results3").empty();
 
         var data = result.results
         // show table
@@ -68,6 +71,11 @@ $(function() {
         }
         for (i = 0; i < data.length; i++) {
           $("#results2").append('<tr><th><img src="'+data[i]["image"]+'" class="result-img2"></th></tr>')
+        }
+        for (i = 0; i < data.length; i++) {
+
+          $("#results-table3").show();
+          $("#results3").append('<tr><th><img src="'+data[i]["gan"]+'" class="result-img3"></th></tr>')
         }
       },
       // handle error
@@ -95,10 +103,19 @@ img.onclick = function(){
   captionText.innerHTML = this.alt;
 }
 
+//instance seg
 var img1 = document.getElementById("results1");
 img1.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.getElementsByClassName("result-img1")[0].src;
+  captionText.innerHTML = this.alt;
+}
+
+// gan
+var img3 = document.getElementById("results3");
+img3.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.getElementsByClassName("result-img3")[0].src;
   captionText.innerHTML = this.alt;
 }
 
