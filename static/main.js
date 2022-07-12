@@ -5,6 +5,7 @@ $("#searching").hide();
 $("#results-table1").hide();
 $("#results-table2").hide();
 $("#results-table3").hide();
+$("#results-table11").hide();
 $("#error").hide();
 $("#results-btn").hide();
 // global
@@ -25,6 +26,7 @@ $(function() {
     $("#results-table1").hide();
     $("#results-table2").hide();
     $("#results-table3").hide();
+    $("#results-table11").hide();
     $("#loading-prograss").hide();
     $("#error").hide();
     $("#results-btn").hide();
@@ -57,6 +59,7 @@ $(function() {
       success: function(result) {
         console.log(result.results);
         $("#results1").empty();
+        $("#results11").empty();
         $("#results2").empty();
         $("#results3").empty();
 
@@ -64,16 +67,19 @@ $(function() {
         // show table
         $("#results-table1").show();
         $("#results-table2").show();
+        $("#results-table11").show();
         $("#results-btn").show();
         // loop through results, append to dom
         for (i = 0; i < data.length; i++) {
           $("#results1").append('<tr><th><img src="'+data[i]["semantic"]+'" class="result-img1"></th></tr>')
         }
         for (i = 0; i < data.length; i++) {
+          $("#results11").append('<tr><th><img src="'+data[i]["semantic2"]+'" class="result-img11"></th></tr>')
+        }
+        for (i = 0; i < data.length; i++) {
           $("#results2").append('<tr><th><img src="'+data[i]["image"]+'" class="result-img2"></th></tr>')
         }
         for (i = 0; i < data.length; i++) {
-
           $("#results-table3").show();
           $("#results3").append('<tr><th><img src="'+data[i]["gan"]+'" class="result-img3"></th></tr>')
         }
@@ -116,6 +122,13 @@ var img3 = document.getElementById("results3");
 img3.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.getElementsByClassName("result-img3")[0].src;
+  captionText.innerHTML = this.alt;
+}
+
+var img11 = document.getElementById("results11");
+img11.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.getElementsByClassName("result-img11")[0].src;
   captionText.innerHTML = this.alt;
 }
 
