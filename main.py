@@ -30,8 +30,9 @@ def search():
             name = image_url.split("/")[-1]
             temp = "res_" + image_url.split("/")[-1]
             if temp in RES:
-                res = {"image":"./static/{}".format("res_"+name), "semantic":"./static/{}".format("sem_"+name)}
-                time.sleep(2)
+                res = {"image":"./static/{}".format("res_"+name), "semantic":"./static/{}".format("seg_"+name),
+                       "gan":"./static/{}".format("gan_"+name)}
+                time.sleep(1.5)
                 return jsonify(results=([res]))
             else:
                 return 'no result'
